@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Tải Video TikTok Không Logo</title>
+
+<style>
+body{
+font-family: Arial;
+text-align:center;
+padding:40px;
+background:#f5f5f5;
+}
+
+input{
+width:300px;
+padding:10px;
+}
+
+button{
+padding:10px 20px;
+background:#ff0050;
+color:white;
+border:none;
+}
+
+#result{
+margin-top:20px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h2>Tải Video TikTok Không Logo</h2>
+
+<input id="link" placeholder="Dán link TikTok">
+<button onclick="download()">Tải Video</button>
+
+<div id="result"></div>
+
+<script>
+function download(){
+
+let url=document.getElementById("link").value;
+
+fetch("https://api.tiklydown.eu.org/api/download?url="+url)
+
+.then(res=>res.json())
+
+.then(data=>{
+
+document.getElementById("result").innerHTML=
+'<a href="'+data.video.noWatermark+'" target="_blank">Download Video</a>';
+
+})
+
+}
+</script>
+
+</body>
+</html>
